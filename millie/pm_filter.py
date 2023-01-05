@@ -448,34 +448,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
-                file_send=await client.send_cached_media(
-                    chat_id=FILE_CHANNEL,
-                    file_id=file_id,
-                    caption=script.CHANNEL_CAP.format(query.from_user.mention, title, query.message.chat.title),
-                    protect_content=True if ident == "filep" else False,
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("🔥 ᴄʜᴀɴɴᴇʟ 🔥", url=(MAIN_CHANNEL))
-                            ]
-                        ]
-                    )
-                )
+                await query.answer(url="https://t.me/millie_robot_update")
                 return
             elif settings['botpm']:
-                file_send=await client.send_cached_media(
-                    chat_id=FILE_CHANNEL,
-                    file_id=file_id,
-                    caption=script.CHANNEL_CAP.format(query.from_user.mention, title, query.message.chat.title),
-                    protect_content=True if ident == "filep" else False,
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton("🔥 ᴄʜᴀɴɴᴇʟ 🔥", url=(MAIN_CHANNEL))
-                            ]
-                        ]
-                    )
-                )
+                await query.answer(url="https://t.me/millie_robot_update")
                 await query.answer('𝘾𝙝𝙚𝙘𝙠 𝙋𝙈, 𝙄 𝙝𝙖𝙫𝙚 𝙨𝙚𝙣𝙩 𝙛𝙞𝙡𝙚𝙨 𝙞𝙣 𝙥𝙢\n@ᴄᴢᴅ ʙᴏᴛᴢ​', show_alert=True)
                 return
             else:
@@ -512,33 +488,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except UserIsBlocked:
             await query.answer('𝐔𝐧𝐛𝐥𝐨𝐜𝐤 𝐭𝐡𝐞 𝐛𝐨𝐭 𝐦𝐚𝐡𝐧 !', show_alert=True)
         except PeerIdInvalid:
-            await file_send=await client.send_cached_media(
-                  chat_id=FILE_CHANNEL,
-                  file_id=file_id,
-                  caption=script.CHANNEL_CAP.format(query.from_user.mention, title, query.message.chat.title),
-                  protect_content=True if ident == "filep" else False,
-                  reply_markup=InlineKeyboardMarkup(
-                      [
-                          [
-                              InlineKeyboardButton("🔥 ᴄʜᴀɴɴᴇʟ 🔥", url=(MAIN_CHANNEL))
-                          ]
-                      ]
-                  )
-              )
+            await query.answer(url="https://t.me/millie_robot_update")
         except Exception as e:
-            await file_send=await client.send_cached_media(
-                  chat_id=FILE_CHANNEL,
-                  file_id=file_id,
-                  caption=script.CHANNEL_CAP.format(query.from_user.mention, title, query.message.chat.title),
-                  protect_content=True if ident == "filep" else False,
-                  reply_markup=InlineKeyboardMarkup(
-                      [
-                          [
-                              InlineKeyboardButton("🔥 ᴄʜᴀɴɴᴇʟ 🔥", url=(MAIN_CHANNEL))
-                          ]
-                      ]
-                  )
-              )
+            await query.answer(url="https://t.me/millie_robot_update")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer("𝑰 𝑳𝒊𝒌𝒆 𝒀𝒐𝒖𝒓 𝑺𝒎𝒂𝒓𝒕𝒏𝒆𝒔𝒔, 𝑩𝒖𝒕 𝑫𝒐𝒏'𝒕 𝑩𝒆 𝑶𝒗𝒆𝒓𝒔𝒎𝒂𝒓𝒕 😒\n@ᴄᴢᴅ ʙᴏᴛᴢ​", show_alert=True)
