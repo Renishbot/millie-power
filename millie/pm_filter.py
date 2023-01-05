@@ -448,7 +448,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
-                                file_send=await client.send_cached_media(
+                file_send=await client.send_cached_media(
                     chat_id=FILE_CHANNEL,
                     file_id=file_id,
                     caption=script.CHANNEL_CAP.format(query.from_user.mention, title, query.message.chat.title),
@@ -458,25 +458,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             [
                                 InlineKeyboardButton("🔥 ᴄʜᴀɴɴᴇʟ 🔥", url=(MAIN_CHANNEL))
                             ]
-                        ]
-                    )
-                )
-                Joel_tgx = await query.message.reply_text(
-                    script.FILE_MSG.format(query.from_user.mention, title, size),
-                    parse_mode=enums.ParseMode.HTML,
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                          InlineKeyboardButton('📥 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 𝖫𝗂𝗇𝗄 📥 ', url = file_send.link)
-                       ],[
-                          InlineKeyboardButton("⚠️ 𝖢𝖺𝗇'𝗍 𝖠𝖼𝖼𝖾𝗌𝗌 ❓ 𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾 ⚠️", url=(FILE_FORWARD))
-                         ]
                         ]
                     )
                 )
                 return
             elif settings['botpm']:
-                                file_send=await client.send_cached_media(
+                file_send=await client.send_cached_media(
                     chat_id=FILE_CHANNEL,
                     file_id=file_id,
                     caption=script.CHANNEL_CAP.format(query.from_user.mention, title, query.message.chat.title),
@@ -489,19 +476,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         ]
                     )
                 )
-                Joel_tgx = await query.message.reply_text(
-                    script.FILE_MSG.format(query.from_user.mention, title, size),
-                    parse_mode=enums.ParseMode.HTML,
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                          InlineKeyboardButton('📥 𝖣𝗈𝗐𝗇𝗅𝗈𝖺𝖽 𝖫𝗂𝗇𝗄 📥 ', url = file_send.link)
-                       ],[
-                          InlineKeyboardButton("⚠️ 𝖢𝖺𝗇'𝗍 𝖠𝖼𝖼𝖾𝗌𝗌 ❓ 𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾 ⚠️", url=(FILE_FORWARD))
-                         ]
-                        ]
-                    )
-                )
+                await query.answer('𝘾𝙝𝙚𝙘𝙠 𝙋𝙈, 𝙄 𝙝𝙖𝙫𝙚 𝙨𝙚𝙣𝙩 𝙛𝙞𝙡𝙚𝙨 𝙞𝙣 𝙥𝙢\n@ᴄᴢᴅ ʙᴏᴛᴢ​', show_alert=True)
                 return
             else:
                 file_send=await client.send_cached_media(
