@@ -512,9 +512,33 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except UserIsBlocked:
             await query.answer('𝐔𝐧𝐛𝐥𝐨𝐜𝐤 𝐭𝐡𝐞 𝐛𝐨𝐭 𝐦𝐚𝐡𝐧 !', show_alert=True)
         except PeerIdInvalid:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await file_send=await client.send_cached_media(
+                  chat_id=FILE_CHANNEL,
+                  file_id=file_id,
+                  caption=script.CHANNEL_CAP.format(query.from_user.mention, title, query.message.chat.title),
+                  protect_content=True if ident == "filep" else False,
+                  reply_markup=InlineKeyboardMarkup(
+                      [
+                          [
+                              InlineKeyboardButton("🔥 ᴄʜᴀɴɴᴇʟ 🔥", url=(MAIN_CHANNEL))
+                          ]
+                      ]
+                  )
+              )
         except Exception as e:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await file_send=await client.send_cached_media(
+                  chat_id=FILE_CHANNEL,
+                  file_id=file_id,
+                  caption=script.CHANNEL_CAP.format(query.from_user.mention, title, query.message.chat.title),
+                  protect_content=True if ident == "filep" else False,
+                  reply_markup=InlineKeyboardMarkup(
+                      [
+                          [
+                              InlineKeyboardButton("🔥 ᴄʜᴀɴɴᴇʟ 🔥", url=(MAIN_CHANNEL))
+                          ]
+                      ]
+                  )
+              )
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer("𝑰 𝑳𝒊𝒌𝒆 𝒀𝒐𝒖𝒓 𝑺𝒎𝒂𝒓𝒕𝒏𝒆𝒔𝒔, 𝑩𝒖𝒕 𝑫𝒐𝒏'𝒕 𝑩𝒆 𝑶𝒗𝒆𝒓𝒔𝒎𝒂𝒓𝒕 😒\n@ᴄᴢᴅ ʙᴏᴛᴢ​", show_alert=True)
