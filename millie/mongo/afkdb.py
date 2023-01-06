@@ -1,5 +1,9 @@
 from database.users_chats_db import db
+from motor.motor_asyncio import AsyncIOMotorClient
+from info import DATABASE_URI
 
+mongo_client = AsyncIOMotorClient(DATABASE_URI)
+db = mongo_client.wbb
 afkusers = db.afkusers
 
 async def is_afk(user_id: int) -> bool:
