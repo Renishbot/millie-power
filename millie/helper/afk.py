@@ -1,11 +1,14 @@
 import re
-from time import time
+from datetime import datetime 
 from pyrogram import filters, Client as app
 from pyrogram.types import Message
 from millie.mongo.afkdb import is_afk, add_afk, remove_afk, get_afk_users
 
 afkcheacker = 1
-
+tz = pytz.timezone('Asia/Kolkata')
+now = datetime.now(tz)
+time = now.strftime("%H:%M:%S %p")
+        
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
